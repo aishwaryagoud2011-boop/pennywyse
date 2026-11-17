@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Pennywyse — Take Control of Every Expense</title>
+    <meta
+      name="description"
+      content="Take control of every expense — personal finance tracker, budget planner, savings goals, and AI money coach."
+    />
+    <meta property="og:title" content="Pennywyse — Take Control of Every Expense" />
+    <meta
+      property="og:description"
+      content="Take control of every expense — personal finance tracker, budget planner, savings goals, and AI money coach."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#A80F0F" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Pennywyse" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script>
+      if (window.location.protocol !== 'file:') {
+        var mLink = document.createElement('link');
+        mLink.rel = 'manifest';
+        mLink.href = './manifest.webmanifest';
+        document.head.appendChild(mLink);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="app-outer">
+        <div class="app-shell">
+          <div class="boot-loader">
+            <span class="spinner" style="width:32px;height:32px;border-width:3px;color:#A80F0F;"></span>
+            <p class="font-serif" style="font-size:14px;color:#525252;">Loading Pennywyse...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        if (window.location.protocol !== 'file:' && 'serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function (regs) {
+            var hadLegacy = false;
+            var tasks = [];
+            for (var i = 0; i < regs.length; i++) {
+              var reg = regs[i];
+              var url = (reg.active && reg.active.scriptURL) || (reg.waiting && reg.waiting.scriptURL) || (reg.installing && reg.installing.scriptURL) || '';
+              if (url.indexOf('dev-sw.js') !== -1) {
+                hadLegacy = true;
+                tasks.push(reg.unregister());
+              }
+            }
+            if (hadLegacy) {
+              Promise.all(tasks).then(function () {
+                if ('caches' in window) {
+                  caches.keys().then(function (keys) {
+                    Promise.all(keys.map(function (k) { return caches.delete(k); })).then(function () {
+                      if (!sessionStorage.getItem('pw_sw_reloaded')) {
+                        sessionStorage.setItem('pw_sw_reloaded', '1');
+                        window.location.reload();
+                      }
+                    });
+                  });
+                }
+              });
+            }
+          }).catch(function () {});
+        }
+      })();
+    </script>
+    <script defer src="./js/state.js"></script>
+    <script defer src="./js/icons.js"></script>
+    <script defer src="./js/finance.js"></script>
+    <script defer src="./js/pwa.js"></script>
+    <script defer src="./js/api.js"></script>
+    <script defer src="./js/pdfExport.js"></script>
+    <script defer src="./js/modals/transactionModal.js"></script>
+    <script defer src="./js/screens/splash.js"></script>
+    <script defer src="./js/screens/welcome.js"></script>
+    <script defer src="./js/screens/signup.js"></script>
+    <script defer src="./js/screens/home.js"></script>
+    <script defer src="./js/screens/transactions.js"></script>
+    <script defer src="./js/screens/analytics.js"></script>
+    <script defer src="./js/screens/ai.js"></script>
+    <script defer src="./js/screens/profile.js"></script>
+    <script defer src="./js/app.js"></script>
+  </body>
+</html>

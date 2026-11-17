@@ -1,0 +1,8 @@
+{
+  "name": "Pennywyse",
+  "description": "Take control of every expense — personal finance tracker, budget planner, savings goals, and AI money coach.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

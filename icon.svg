@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="crimsonMain" x1="64" y1="48" x2="420" y2="464" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D91B1B" />
+      <stop offset="55%" stop-color="#A30B0B" />
+      <stop offset="100%" stop-color="#6B0505" />
+    </linearGradient>
+    <linearGradient id="goldSlash" x1="110" y1="360" x2="410" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#FDE68A" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#FFFFFF" />
+  <!-- Top horizontal book/stem cap -->
+  <path d="M132 96C132 76.1177 148.118 60 168 60H308C367.647 60 416 108.353 416 168V192C416 251.647 367.647 300 308 300H212V420C212 437.673 197.673 452 180 452H164C146.327 452 132 437.673 132 420V96Z" fill="url(#crimsonMain)" />
+  <!-- Inner white P counter -->
+  <path d="M212 132H296C324.719 132 348 155.281 348 184C348 212.719 324.719 236 296 236H212V132Z" fill="#FFFFFF" />
+  <!-- Top ledger notch -->
+  <rect x="164" y="84" width="144" height="16" rx="8" fill="#FFFFFF" opacity="0.92" />
+  <!-- Diagonal golden slash -->
+  <path d="M110 342L394 148C401.5 142.8 411.8 144.8 417 152.3C422.2 159.8 420.2 170.1 412.7 175.3L128.7 369.3C121.2 374.5 110.9 372.5 105.7 365C100.5 357.5 102.5 347.2 110 342Z" fill="url(#goldSlash)" />
+</svg>
