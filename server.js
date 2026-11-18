@@ -6,7 +6,7 @@ import path from 'node:path';
 import express from 'express';
 import { GoogleGenAI } from '@google/genai';
 
-const DATA_DIR = path.resolve(process.cwd(), 'data');
+const DATA_DIR = process.env.VERCEL ? '/tmp' : path.resolve(process.cwd(), 'data');
 const DB_PATH = path.join(DATA_DIR, 'pennywyse-db.json');
 const SESSION_SECRET =
   process.env.SESSION_SECRET ||
